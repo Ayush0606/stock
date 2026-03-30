@@ -1,0 +1,156 @@
+.comparison-container {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--card-shadow);
+  color: var(--text-primary);
+}
+
+.comparison-container h2 {
+  margin-top: 0;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.comparison-controls {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  align-items: flex-end;
+}
+
+.comparison-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comparison-input label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.comparison-input input,
+.comparison-input select {
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.compare-button {
+  padding: 10px 25px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.compare-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.compare-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  background: rgba(211, 47, 47, 0.1);
+  border-left: 4px solid var(--negative-color);
+  color: var(--negative-color);
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.comparison-result {
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.comparison-item {
+  text-align: center;
+  padding: 15px;
+}
+
+.comparison-item h3 {
+  margin: 0 0 15px 0;
+  color: var(--accent-color);
+  font-size: 18px;
+}
+
+.comparison-item .metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--bg-primary);
+  border-radius: 6px;
+}
+
+.comparison-item .metric span:first-child {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.comparison-item .metric span:last-child {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.positive {
+  color: var(--positive-color);
+}
+
+.negative {
+  color: var(--negative-color);
+}
+
+.comparison-divider {
+  text-align: center;
+  color: var(--border-color);
+  font-weight: 600;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.comparison-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat span:first-child {
+  display: block;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.stat span:last-child {
+  display: block;
+  color: var(--accent-color);
+  font-size: 16px;
+  font-weight: 600;
+}
