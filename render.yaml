@@ -1,20 +1,18 @@
 services:
   - type: web
     name: stock-dashboard-backend
-    runtime: python
-    pythonVersion: 3.10
-    buildCommand: cd backend && pip install --upgrade pip && pip install -r requirements.txt
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     envVars:
+      - key: ENVIRONMENT
+        value: production
       - key: DATABASE_URL
         value: sqlite:///./stock_data.db
-      - key: ALLOWED_HOSTS
-        fromDatabase:
-          name: stock_db
-          property: host
+      - key: FRONTEND_URL
+        value: https://stock-dashboard.onrender.com
     disk:
       name: stock-data
-      mountPath: /app/backend
+      mountPath: /app
       sizeGB: 1
 
   - type: static
