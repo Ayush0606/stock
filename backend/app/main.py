@@ -25,10 +25,7 @@ FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:3000')
 # Configure CORS based on environment
 if ENVIRONMENT == 'production':
     # Production: restrict to specific origins
-    allow_origins = [
-        FRONTEND_URL,
-        'https://stock-dashboard-frontend.onrender.com'  # Render frontend URL
-    ]
+    allow_origins = [FRONTEND_URL]
 else:
     # Development: allow localhost
     allow_origins = [
