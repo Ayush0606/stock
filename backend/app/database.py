@@ -54,9 +54,32 @@ def init_db():
             for symbol in symbols:
                 try:
                     logger.info(f"Loading data for {symbol}...")
-                    DataProcessor.fetch_and_save_stock_data(symbol, db)
+                    # Process the stock data
+                    df = DataProcessor.process_stock_data(symbol, period="1y")
+                    
+                    if df is not None and not df.empty:
+                        # Save to database
+                        for _, row in df.iterrows():
+                            stock_record = StockData(
+                                symbol=row['symbol'],
+                                date=row['date'],
+                                open=float(row['open']),
+                                high=float(row['high']),
+                                low=float(row['low']),
+                                close=float(row['close']),
+                                volume=int(row['volume']),
+                                daily_return=float(row['daily_return']),
+                                moving_avg_7=float(row['moving_avg_7']),
+                                volatility_30=float(row['volatility_30'])
+                            )
+                            db.add(stock_record)
+                        db.commit()
+                        logger.info(f"Saved {len(df)} records for {symbol}")
+                    else:
+                        logger.warning(f"No data returned for {symbol}")
                 except Exception as e:
                     logger.warning(f"Failed to load data for {symbol}: {str(e)}")
+                    db.rollback()
             
             logger.info("Initial data loading complete.")
         else:
