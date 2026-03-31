@@ -59,8 +59,8 @@ app.add_middleware(
 # Initialize database
 init_db()
 
-# Include routes
-app.include_router(stocks.router)
+# Include routes with /api prefix
+app.include_router(stocks.router, prefix="/api")
 
 
 @app.get("/")

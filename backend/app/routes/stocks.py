@@ -19,7 +19,7 @@ from app.utils.data_processor import DataProcessor
 
 logger = logging.getLogger(__name__)
 
-router = APIRouter(prefix="/api", tags=["stocks"])
+router = APIRouter(tags=["stocks"])
 
 
 @router.get("/health")
