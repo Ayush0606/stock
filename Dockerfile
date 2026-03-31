@@ -16,6 +16,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application
 COPY backend/app ./app
 
+# Copy pre-populated database
+COPY backend/stock_data.db ./stock_data.db
+
 # Expose port
 EXPOSE 8000
 
